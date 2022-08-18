@@ -11,7 +11,7 @@
       </div>
       <div class="d-flex justify-content-evenly mt-1">
         <p>Rating: <%= bookmark.movie.rating %></p>
-        <%= link_to list_bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Sure?"} do  %>
+        <%= link_to bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Sure?"} do  %>
         <i class="fa-solid fa-trash"></i>
         <% end %>
       </div>

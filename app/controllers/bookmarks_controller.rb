@@ -34,6 +34,6 @@ class BookmarksController < ApplicationController
   end
 
   def set_bookmark
-    @bookmark = Bookmark.find(params[:list_id])
+    @bookmark = Bookmark.find(params[:id])
   end
 end
