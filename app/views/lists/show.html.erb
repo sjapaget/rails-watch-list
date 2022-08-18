@@ -1,22 +1,31 @@
-<h1><%= @list.name %></h1>
-<div class="row">
-  <% @bookmarks.each do |bookmark| %>
-    <div class="card col-3 p-1 m-1 d-flex flex-column align-items- justify-content-between">
-      <div class="d-flex flex-column align-items-center">
-        <h4 class="card-title"><%= bookmark.movie.title %></h4>
-        <%= image_tag bookmark.movie.poster_url, class: "w-50 " %>
-      </div>
-      <div class="mt-1">
-        <p><%= bookmark.comment %></p>
-      </div>
-      <div class="d-flex justify-content-evenly mt-1">
-        <p>Rating: <%= bookmark.movie.rating %></p>
-        <%= link_to bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Sure?"} do  %>
-        <i class="fa-solid fa-trash"></i>
-        <% end %>
-      </div>
+<div class="container d-flex flex-column justify-content-center">
+  <div class="row justify-content-center mt-1">
+    <div class="col-5">
+      <h1 class=""><%= @list.name %> (<%= pluralize(@list.movies.size, "movie") %>)</h1>
     </div>
-  <% end %>
-</div>
+    <div class="col-3 mt-2">
+      <%= link_to "Add a movie", new_list_bookmark_path(@list), class: "btn btn-primary" %>
+    </div>
+  </div>
 
-<%= link_to "Add a movie", new_list_bookmark_path(@list) %>
+  <div class="row justify-content-center">
+    <% @bookmarks.each do |bookmark| %>
+      <div class="card col-3 p-1 m-1 d-flex flex-column align-items-center justify-content-between">
+        <div class="d-flex flex-column align-items-center">
+          <h4 class="card-title"><%= bookmark.movie.title %></h4>
+          <%= image_tag bookmark.movie.poster_url, class: "w-50 " %>
+        </div>
+        <div class="mt-1">
+          <p><%= bookmark.comment %></p>
+        </div>
+        <div class="d-flex justify-content-evenly w-100 mt-1">
+          <p>Rating: <%= bookmark.movie.rating %></p>
+          <%= link_to bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Sure?"} do  %>
+          <i class="fa-solid fa-trash"></i>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+</div>
