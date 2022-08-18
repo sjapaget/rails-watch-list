@@ -5,13 +5,19 @@
     <a class="btn btn-flat" href="#">Apply now</a>
   </div>
 </div>
-<ul>
-  <% @lists.each do |list| %>
-    <li>
-    <%= list.name %>
-    <%= link_to "See List", list_path(list) %>
-    </li>
-  <% end %>
-</ul>
+<div class="container mx-auto">
+  <h3>Your Lists</h3>
+  <div class="row">
+    <% @lists.each do |list| %>
+      <div class="card col-3 m-1">
+        <%= list.name %>
+        <%= link_to "See List", list_path(list) %>
+        <%= link_to list_path(list), data: {turbo_method: :delete, turbo_confirm: "Sure?"} do  %>
+        <i class="fa-solid fa-trash"></i>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
 
 <%= link_to "Add a list", new_list_path %>
