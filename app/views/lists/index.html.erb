@@ -19,7 +19,9 @@
             <%= list.name %>
           </h5>
         </div>
-
+        <div>
+          <%= cl_image_tag list.image.key, height: 100, width: 50, crop: :fill %>
+        </div>
         <div class="d-flex justify-content-evenly">
           <%= link_to "See List", list_path(list), class: "btn btn-outline-primary" %>
           <%= link_to list_path(list), data: {turbo_method: :delete, turbo_confirm: "Sure?"}, class: "btn btn-danger text-white" do  %>
