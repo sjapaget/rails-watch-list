@@ -1,0 +1,16 @@
+.new_bookmark {
+  background-color: grey;
+  padding: 2em;
+  left: 50%;
+  width: 25vw;
+  height: 50vh;
+  position: absolute;
+  transition: 0.5s ease;
+  z-index: 2;
+}
+
+.form-hidden {
+  position: relative;
+  height: 0px;
+  opacity: 0;
+}

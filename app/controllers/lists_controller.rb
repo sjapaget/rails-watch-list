@@ -7,6 +7,8 @@ class ListsController < ApplicationController
 
   def show
     @bookmarks = @list.bookmarks
+    # empty bookmark for new bookmark form
+    @bookmark = Bookmark.new
   end
 
   def new

@@ -1,0 +1,10 @@
+<%= simple_form_for [list, bookmark] do |f| %>
+  <%= f.input :comment %>
+  <%= f.association :movie, collection: Movie.all.order(:title), prompt: "Pick a movie", input_html: { data: { controller: "slect2" } }   %>
+  <%= f.submit %>
+  <% if @error %>
+    <h5 class="text-warning">
+      <%= @error %>
+    </h5>
+  <% end %>
+<% end %>

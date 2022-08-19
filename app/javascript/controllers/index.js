@@ -4,5 +4,5 @@
 
 import { application } from "./application"
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
+import ShowNewBookmarkController from "./show_new_bookmark_controller"
+application.register("show-new-bookmark", ShowNewBookmarkController)

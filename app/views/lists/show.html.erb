@@ -1,12 +1,18 @@
 <div class="container d-flex flex-column justify-content-center bg-secondary bg-gradient mt-2">
+  <div data-controller="show-new-bookmark" id="data controller">
   <div class="row justify-content-between mt-1">
     <div class="col-6">
       <h1 class="text-white"><%= @list.name %> (<%= pluralize(@list.movies.size, "movie") %>)</h1>
     </div>
-    <div class="col-3 mt-2">
-      <%= link_to "Add a movie", new_list_bookmark_path(@list), class: "btn btn-dark" %>
+        <div class="col-3 mt-2">
+          <button class="btn btn-dark" data-action="click->show-new-bookmark#reveal">Add a movie</button>
+        </div>
+      </div>
+      <div data-show-new-bookmark-target="form" class="new_bookmark form-hidden justify-content-center bg-none">
+        <%= render "bookmarks/form", list: @list, bookmark: @bookmark%>
+      </div>
     </div>
-  </div>
+
 
   <div class="row justify-content-center">
     <% @bookmarks.each do |bookmark| %>
