@@ -1,0 +1,9 @@
+.list-card {
+  height: 60vh;
+}
+
+.list-card > .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
