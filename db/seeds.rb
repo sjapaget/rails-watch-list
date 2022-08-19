@@ -9,17 +9,23 @@
 require 'json'
 require 'open-uri'
 
+puts "Cleaning database"
+
+Movie.destroy_all
+
+puts "Fetching films from OMDb"
+
 url = "https://tmdb.lewagon.com/movie/top_rated"
 puts "fetching films"
 films = JSON.parse(URI.open(url).read)["results"]
 
 films.each do |film|
-  puts "creating film"
+  puts "Creating film"
    Movie.create(
     title: film["original_title"],
     overview: film["overview"],
     poster_url: "https://image.tmdb.org/t/p/w500#{film["poster_path"]}",
     rating: film["vote_average"]
   )
-  puts "film created"
+  puts "Film created"
 end
