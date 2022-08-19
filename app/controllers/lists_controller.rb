@@ -30,6 +30,10 @@ class ListsController < ApplicationController
     redirect_to lists_path, status: :see_other
   end
 
+  def list_img
+    list.image.attached? ? list.image.key : List::DEFAULT_IMG
+  end
+
   private
 
   def list_params
